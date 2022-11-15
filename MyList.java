@@ -1,5 +1,3 @@
-
-
 public class MyList {
 
     public Node head = new Node();
@@ -10,7 +8,6 @@ public class MyList {
     public class Node{
         public int data;
         public Node next = null;
-
         public Node(int data){
             this.data = data;
            // next = null;
@@ -26,13 +23,17 @@ public class MyList {
             newNode.next = head.next;
         }
         head.next=newNode;
-        /*else {
-            while (currentNode.next != null){
-                currentNode = currentNode.next;
-            }
-            currentNode.next=newNode;
-        }*/
 
+    }
+
+    public void SUMMNode(){
+        Node currentNode = head;
+        int summ = 0;
+        while (currentNode.next != null){
+            currentNode = currentNode.next;
+            summ++;
+        }
+        System.out.print("\n" + summ);
     }
 
     public void REMNode(int data) {
@@ -62,7 +63,9 @@ public class MyList {
 
         while (currentNode.next != null){
             currentNode = currentNode.next;
-            System.out.println(currentNode.data);
+            System.out.print("{ ");
+            System.out.print(currentNode.data + " ");
+            System.out.print("}");
         }
 
     }
