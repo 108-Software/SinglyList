@@ -1,29 +1,32 @@
 public class MyList {
 
     public Node head = new Node();
-
-   /* public MyList(){
-        head = null;
-    }*/
     public class Node{
         public int data;
         public Node next = null;
         public Node(int data){
             this.data = data;
-           // next = null;
         }
         public Node(){}
     }
 
     public void ADDNode(int data){
         Node newNode = new Node(data);
-        //Node currentNode = head;
 
         if (head.next != null){
             newNode.next = head.next;
         }
         head.next=newNode;
 
+    }
+
+    public void ADDLast(int data){
+        Node newNode = new Node(data);
+        Node currentNode = head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+        currentNode.next = newNode;
     }
 
     public void SUMMNode(){
@@ -35,6 +38,12 @@ public class MyList {
         }
         System.out.print("\n" + summ);
     }
+
+    public void REMFirst(int data){
+
+    }
+
+    public void REMLast(int data){}
 
     public void REMNode(int data) {
         Node currentNode = head;
@@ -54,12 +63,18 @@ public class MyList {
         }
     }
 
-    public void print(){
+    public void REMAll(){
         Node currentNode = head;
 
-       /*if (head != null){
-            System.out.println(head.data);
-        }*/
+        while (currentNode.next != null){
+            currentNode = currentNode.next;
+            currentNode.data = 0;
+        }
+        REMNode(0);
+    }
+
+    public void print(){
+        Node currentNode = head;
 
         while (currentNode.next != null){
             currentNode = currentNode.next;
